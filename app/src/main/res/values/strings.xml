@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Roller</string>
+    <string name="roll_character">Roll Character</string>
+    <string name="image">Image</string>
+    <string name="image_roller">Image Roller</string>
+    <string name="roll_one_character">Roll One Character</string>
+    <string name="roll_two_character">Roll Two Character</string>
+</resources>
