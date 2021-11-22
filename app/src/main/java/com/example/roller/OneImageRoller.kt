@@ -1,10 +1,11 @@
 package com.example.roller
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_one_image_roller.*
+import androidx.appcompat.app.AppCompatActivity
+import com.example.roller.databinding.ActivityOneImageRollerBinding
 
 class OneImageRoller : AppCompatActivity() {
+    private lateinit var binding: ActivityOneImageRollerBinding
     private var characters = mutableListOf(
         R.drawable.naruto,
         R.drawable.kaguya,
@@ -19,10 +20,11 @@ class OneImageRoller : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_one_image_roller)
-        btnRollOneImg1.setOnClickListener {
+        binding = ActivityOneImageRollerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnRollOneImg1.setOnClickListener {
             val roll = characters.shuffled().first()
-            imgOneRoll.setImageResource(roll)
+            binding.imgOneRoll.setImageResource(roll)
         }
     }
 }

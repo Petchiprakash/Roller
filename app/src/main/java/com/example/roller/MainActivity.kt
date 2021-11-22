@@ -1,20 +1,22 @@
 package com.example.roller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+import com.example.roller.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        btnRoll1.setOnClickListener{
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnRoll1.setOnClickListener{
             Intent(this,OneImageRoller::class.java).also {
                 startActivity(it)
             }
         }
-        btnRoll2.setOnClickListener{
+        binding.btnRoll2.setOnClickListener{
             Intent(this,TwoImageRoller::class.java).also {
                 startActivity(it)
             }

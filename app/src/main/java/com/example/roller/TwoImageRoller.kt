@@ -2,9 +2,10 @@ package com.example.roller
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_two_image_roller.*
+import com.example.roller.databinding.ActivityTwoImageRollerBinding
 
 class TwoImageRoller : AppCompatActivity() {
+    private lateinit var binding: ActivityTwoImageRollerBinding
     private var characters = mutableListOf(
         R.drawable.naruto,
         R.drawable.kaguya,
@@ -18,12 +19,13 @@ class TwoImageRoller : AppCompatActivity() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_two_image_roller)
-        btnRollTwoImg2.setOnClickListener{
+        binding = ActivityTwoImageRollerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnRollTwoImg2.setOnClickListener{
             val roll1 = characters.shuffled().first()
             val roll2 = characters.shuffled().last()
-            imgTwoRoll1.setImageResource(roll1)
-            imgTwoRoll2.setImageResource(roll2)
+            binding.imgTwoRoll1.setImageResource(roll1)
+            binding.imgTwoRoll2.setImageResource(roll2)
         }
     }
 }
